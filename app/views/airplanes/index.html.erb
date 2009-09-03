@@ -1,0 +1,27 @@
+<h2>Listing airplanes</h2>
+
+<table id="show_table">
+  <tr>
+    <th>Plane type</th>
+    <th>Code</th>
+    <th>Seats</th>
+    <th>Made when</th>
+    <th/><th/><th/>
+  </tr>
+
+<% for airplane in @airplanes %>
+  <tr>
+    <td><%=h airplane.plane_type %></td>
+    <td><%=h airplane.code %></td>
+    <td><%=h airplane.seats %></td>
+    <td><%=h airplane.made_when.strftime("%m/%d/%Y at %I:%M%p") %></td>
+    <td><%= link_to image_tag("detail.gif", :border=>0), airplane %></td>
+    <td><%= link_to image_tag("edit.gif", :border=>0), edit_airplane_path(airplane) %></td>
+    <td><%= link_to image_tag("delete.gif", :border=>0), airplane, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New airplane', new_airplane_path %>

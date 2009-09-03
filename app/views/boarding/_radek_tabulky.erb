@@ -1,0 +1,5 @@
+<tr id="radek_<%= (9999 - line.to_i) %>">
+  <td><%=h info.airticket.customer.first_name + " " + info.airticket.customer.surname%></td>
+  <td>todo</td>
+  <td><%= link_to_remote( "Board",:url =>{ :action => :board, :line => (9999 - line.to_i), :entry => info }) %></td>
+</tr>

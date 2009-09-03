@@ -1,0 +1,32 @@
+<h1>Editing airplane</h1>
+
+<%= error_messages_for :airplane %>
+
+<% form_for(@airplane) do |f| %>
+  <p>
+    <b>Plane type</b><br />
+    <%= f.text_field :plane_type %>
+  </p>
+
+  <p>
+    <b>Code</b><br />
+    <%= f.text_field :code %>
+  </p>
+
+  <p>
+    <b>Seats</b><br />
+    <%= f.text_field :seats %>
+  </p>
+
+  <p>
+    <b>Made when</b><br />
+    <%= f.datetime_select :made_when %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @airplane %> |
+<%= link_to 'Back', airplanes_path %>

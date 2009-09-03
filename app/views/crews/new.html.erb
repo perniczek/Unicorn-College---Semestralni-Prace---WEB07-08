@@ -1,0 +1,17 @@
+<h2>New crew</h2>
+
+<% content_for :validation_errors do %>
+  <h3>Validation errors</h3>
+  <%= error_messages_for :crew %>
+<% end %>
+
+<% form_for(@crews) do |f| %>
+
+  <%= render :partial => 'crew_form', :locals => {:f => f} %>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', crews_path %>

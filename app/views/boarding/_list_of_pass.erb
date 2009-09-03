@@ -1,0 +1,38 @@
+<div id="list_of_pas">
+  <h1>Checked</h1>
+  <table id="show_table">
+    <tr>
+      <th>Name</th>
+      <th>Seat number</th>
+      <th>Board</th>
+    </tr>
+    <% item.each_with_index do |it,index| %>
+      <tr id="radek_<%= index%>">
+        <td><%=h it.airticket.customer.first_name + " " + it.airticket.customer.surname%></td>
+        <td>todo</td>
+        <td><%= link_to_remote( "Board",:url =>{ :action => :board, :line => index, :entry => it }) %></td>
+      <%end%>
+    </tr>
+    <tr id="footer_before"></tr>
+  </table>
+  <h1>Boarded</h1>
+  <table id="show_table">
+    <tr>
+      <th>Name</th>
+      <th>Seat number</th>
+      <th>Board</th>
+    </tr>
+    <% @boarded.each_with_index do |b_it,b_index| %>
+      <tr id="b_radek_<%= b_index %>">
+        <td><%=h b_it.airticket.customer.first_name + " " + b_it.airticket.customer.surname%></td>
+        <td>todo</td>
+        <td><%= link_to_remote( "Delete",:url =>{ :action => :reject, :line => b_index, :entry => b_it }) %></td>
+      <%end%>
+    </tr>
+    <tr id="b_footer_before"></tr>
+  </table>
+  <%= link_to_remote( "Finish boarding",:url =>{ :action => :finish_board, :flight => params[:flight] }) %>
+</div>
+<div id="msg" style="display:none;">
+  <h1>Boarding was succesfully finished...</h1>
+</div>

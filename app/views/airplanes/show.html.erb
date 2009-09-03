@@ -1,0 +1,22 @@
+<p>
+  <b>Plane type:</b>
+  <%=h @airplane.plane_type %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @airplane.code %>
+</p>
+
+<p>
+  <b>Seats:</b>
+  <%=h @airplane.seats %>
+</p>
+
+<p>
+  <b>Made when:</b>
+  <%=h @airplane.made_when %>
+</p>
+
+<%= link_to 'Edit', edit_airplane_path(@airplane) %> |
+<%= link_to 'Back', airplanes_path %>

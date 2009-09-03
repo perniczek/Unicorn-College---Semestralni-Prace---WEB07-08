@@ -1,0 +1,41 @@
+--- 
+airport_00004: 
+  name: Stuttgart
+  inbound_fee: 34.0
+  updated_at: 2008-08-06 14:59:54 +02:00
+  details: ""
+  code: STU
+  outbound_fee: 23.0
+  id: 4
+  gps_position: "0\xC2\xB00\xE2\x80\xB20\xE2\x80\xB3N 0\xC2\xB00\xE2\x80\xB20\xE2\x80\xB3E"
+  created_at: 2008-08-06 14:59:54 +02:00
+airport_00001: 
+  name: Praha Ruzyne
+  inbound_fee: 15.0
+  updated_at: 2008-08-06 14:57:28 +02:00
+  details: Praha Ruzyne...
+  code: PRG
+  outbound_fee: 6.0
+  id: 1
+  gps_position: "0\xC2\xB00\xE2\x80\xB20\xE2\x80\xB3N 0\xC2\xB00\xE2\x80\xB20\xE2\x80\xB3E"
+  created_at: 2008-08-06 14:57:28 +02:00
+airport_00002: 
+  name: Bratislava
+  inbound_fee: 23.0
+  updated_at: 2008-08-06 14:58:05 +02:00
+  details: Bratislava
+  code: BRA
+  outbound_fee: 23.0
+  id: 2
+  gps_position: "0\xC2\xB00\xE2\x80\xB20\xE2\x80\xB3N 0\xC2\xB00\xE2\x80\xB20\xE2\x80\xB3E"
+  created_at: 2008-08-06 14:58:05 +02:00
+airport_00003: 
+  name: Los Angels
+  inbound_fee: 23.0
+  updated_at: 2008-08-06 14:58:27 +02:00
+  details: LA
+  code: LAX
+  outbound_fee: 53.0
+  id: 3
+  gps_position: "0\xC2\xB00\xE2\x80\xB20\xE2\x80\xB3N 0\xC2\xB00\xE2\x80\xB20\xE2\x80\xB3E"
+  created_at: 2008-08-06 14:58:27 +02:00

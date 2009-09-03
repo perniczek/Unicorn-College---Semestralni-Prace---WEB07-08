@@ -1,0 +1,31 @@
+
+<p>
+  <b>Name:</b>
+  <%=h @crews.name %>
+</p>
+
+<p>
+  <b>Empno:</b>
+  <%=h @crews.empno %>
+</p>
+
+<p>
+  <b>Hour wage:</b>
+  <%=h @crews.salary %>
+</p>
+
+<p>
+  <b>Home airport:</b>
+  <%= link_to @crews.airport.name, @crews.airport %>
+</p>
+<p>
+  <b>Flights:</b>
+  <ul>
+    <% @crews.flight_crews.each do |flight_crew| %>
+      <li><%=h flight_crew.flight.code %> as a <%=h flight_crew.role %></li>
+    <% end %>
+  </ul>
+</p>
+
+  <%= link_to 'Edit', edit_crew_path(@crews) %> |
+  <%= link_to 'Back', crews_path %>

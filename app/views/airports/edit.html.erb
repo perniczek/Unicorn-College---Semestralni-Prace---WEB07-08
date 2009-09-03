@@ -1,0 +1,18 @@
+<h2>Editing airport</h2>
+
+<% content_for :validation_errors do %>
+  <h3>Validation errors</h3>
+  <%= error_messages_for :airport %>
+<% end %>
+
+<% form_for(@airport) do |f| %>
+ 
+  <%= render :partial => 'airport_form', :locals => {:f => f} %>
+  
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @airport %> |
+<%= link_to 'Back', airports_path %>

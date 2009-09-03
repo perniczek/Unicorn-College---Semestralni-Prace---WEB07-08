@@ -1,0 +1,27 @@
+<h2>Listing crew</h2>
+
+<table id="show_table">
+  <tr>
+    <th>Name</th>
+    <th>Empno</th>
+    <th>Hour wage</th>
+    <th>Home airport</th>
+    <th/><th/><th/>
+  </tr>
+
+<% for crew in @crews %>
+  <tr>
+    <td><%=h crew.name %></td>
+    <td><%=h crew.empno %></td>
+    <td><%=h crew.salary %></td>
+    <td><%=h crew.airport.name %></td>
+    <td><%= link_to image_tag("detail.gif", :border=>0), crew %></td>
+    <td><%= link_to image_tag("edit.gif", :border=>0), edit_crew_path(crew) %></td>
+    <td><%= link_to image_tag("delete.gif", :border=>0), crew, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New crew', new_crew_path %>

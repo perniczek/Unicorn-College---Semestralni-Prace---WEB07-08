@@ -1,0 +1,51 @@
+
+<p>
+  <b>Code:</b>
+  <%=h @airport.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @airport.name %>
+</p>
+
+<p>
+  <b>Gps position:</b>
+  <%=h @airport.gps_position %>
+</p>
+
+<p>
+  <b>Inbound fee:</b>
+  <%=h @airport.inbound_fee %>
+</p>
+
+<p>
+  <b>Outbound fee:</b>
+  <%=h @airport.outbound_fee %>
+</p>
+
+<p>
+    <b>Flights from:</b>
+    <ul>
+      <% @airport.flights_from.each do |flight| %>
+        <li><%= link_to flight.code, flight %> to <%= flight.airport_to.name %></li>
+      <% end %>
+    </ul>
+</p>
+
+<p>
+    <b>Flights to:</b>
+    <ul>
+      <% @airport.flights_to.each do |flight| %>
+        <li><%= link_to flight.code, flight %> from <%= flight.airport_from.name %></li>
+      <% end %>
+    </ul>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%=h @airport.details %>
+</p>
+
+<%= link_to 'Edit', edit_airport_path(@airport) %> |
+<%= link_to 'Back', airports_path %>

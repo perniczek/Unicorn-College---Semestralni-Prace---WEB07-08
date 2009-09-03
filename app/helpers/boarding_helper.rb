@@ -1,0 +1,2 @@
+module BoardingHelper
+end

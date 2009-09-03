@@ -1,0 +1,18 @@
+<% content_for :validation_errors do %>
+  <%= error_messages_for :airport %>
+<% end %>
+
+<h2>Test form - with ActiveRecord</h2>
+<% form_for @airport, :url => {:controller => 'test', :action => 'submit_error'} do  |f| %>
+  <%= label :airport, :name, 'Name:' %>
+  <%= error_message_on :airport, :name %>
+  <%= f.text_field :name %>
+  <% field_set_tag 'GPS position' do %>
+     <%= gps_position :airport, :gps_position %>
+  :code, :name, :gps_position
+  :inbound_fee, :outbound_fee
+  :details
+  <% end %>
+  <%= f.submit 'Submit' %>
+<% end %>
+<%= link_to 'Airport as text', :action=> :airport_as_text, :id => @airport.id %>

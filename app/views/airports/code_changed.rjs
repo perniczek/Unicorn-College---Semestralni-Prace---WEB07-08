@@ -1,0 +1,9 @@
+require 'yaml'
+if (@found_airport.blank?) 
+  page.show 'result_message'
+  page.replace_html 'result_message',
+    "No airport found, so you can add #{params[:airport][:code]} as an airport"
+else
+  page.show 'result_message'
+  page.replace_html 'result_message', "Airport found for airport #{@found_airport.code} please choose an otherone"
+end 

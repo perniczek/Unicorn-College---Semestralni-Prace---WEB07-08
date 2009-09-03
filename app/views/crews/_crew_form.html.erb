@@ -1,0 +1,29 @@
+<p>
+  <%= f.label :first_name, 'First name:' %><br/>
+  <%= f.text_field :first_name %>
+</p>
+
+<p>
+  <%= f.label :surname, 'Surname:' %><br/>
+  <%= f.text_field :surname %>
+</p>
+
+<p>
+  <%= f.label :empno, 'Employee number:' %><br/>
+  <%= f.text_field :empno%>
+</p>
+
+<p>
+  <%= f.label :salary, 'Hour wage :' %><br/>
+  <%= f.text_field :salary %>
+</p>
+
+<p>
+  <%= f.label :birthday, 'Birthday :' %><br/>
+  <%= f.date_select :birthday %>
+</p>
+
+<p>
+  <b>Home airport </b><br />
+  <%= f.select :airport_id, Airport.find(:all).collect {|p| [ p.name, p.id ] } %>
+</p>

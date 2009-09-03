@@ -1,0 +1,21 @@
+<div id="checking_table">
+<h1>Select person to check</h1>
+<table id="show_table">
+  <tr>
+    <th>Name</th>
+    <th>From code</th>
+    <th>To code</th>
+    <th>Leaves at</th>
+    <th>Check</th>
+  </tr>
+  <% for item in flights %>
+    <tr>
+      <td><%=h item.airticket.customer.first_name + " " + item.airticket.customer.surname%></td>
+      <td><%=h item.flight.airport_from.code%></td>
+      <td><%=h item.flight.airport_to.code%></td>
+      <td><%=h item.flight.leaves_at.strftime("%m/%d/%Y at %I:%M%p")%></td>
+      <td><%= link_to_remote( "Check for flight",:url =>{ :action => :get_laguage, :item => item }) %></td>
+    </tr>
+  <%end%>
+</table>
+</div>

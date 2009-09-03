@@ -1,0 +1,10 @@
+<h1>Passangers option</h1>
+<% form_tag( { :action => "passangers_add" }, { :method => :post }) do %>
+  <% @number_of_passangers.to_i.times do |passer| %>
+    <p>
+      <b>Birth number of <%= passer+1 %>. passanger</b><br />
+      <%= text_field "post", "id"+(passer+1).to_s %>
+    </p>
+  <%end%>
+  <%= submit_tag "Next" %>
+<%end%>

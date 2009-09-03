@@ -1,0 +1,16 @@
+<div id="laguage">
+  <h1>Please insert your laguage info</h1>
+<% form_remote_tag(:url => { :action => :check_pass, :item_info => item_info}) do%>
+  <p>
+    <b>Pocet zavazadel</b><br />
+    <%= select "post","laguage_count", [0,1,2]%>
+  </p>
+  <p>
+    <b>Celkova vaha</b><br />
+    <%= text_field "post","laguage_weight", :size => 2%>
+  </p>
+  <p>
+    <%= submit_tag "Check-in" %>
+  </p>
+<%end%>
+</div>

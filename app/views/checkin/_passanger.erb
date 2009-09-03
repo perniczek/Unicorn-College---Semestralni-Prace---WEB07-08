@@ -1,0 +1,32 @@
+<div id="table_div">
+<table id="find_table">
+  <tr>
+    <th>Passanger details</th>
+  </tr>
+  <tr>
+    <td>
+      <% form_remote_tag(:url => { :action => :find_passanger_by_cc}) do%>
+        <p>    
+          <b>First Name</b><br />    
+          <%= text_field "post","first_name"%>
+        </p>
+        <p>    
+          <b>Surname</b><br />    
+          <%= text_field "post","surname"%>
+        </p>
+        <p>    
+          <b>Credit card number</b><br />    
+          <%= text_field "post","cr1",:size =>4%>-
+          <%= text_field "post","cr2",:size =>4%>-
+          <%= text_field "post","cr3",:size =>4%>-
+          <%= text_field "post","cr4",:size =>4%>
+        </p>
+        <p>
+          <%= submit_tag "Find" %>
+        </p>
+      <%end%>
+    </td>
+  </tr>
+</table>
+</div>
+<div id="results"></div>

@@ -1,0 +1,24 @@
+<h1>Tickets reservation</h1>
+<% form_tag( { :action => "pick", }, { :method => :post }) do %>
+  <p>
+    <b>From</b><br />
+    <%=select("post", "from", @airports.collect {|p| [ p.name, p.id ] }) %>
+  </p>
+  <p>
+    <b>To</b><br />
+    <%=select("post", "to",@airports.collect {|p| [ p.name, p.id ] }) %>
+  </p>
+  <p>
+    <b>Departure</b><br />
+    <%=date_select "post", "departure"%>
+  </p
+  <p>
+    <b>Dates can be off by</b><br />
+    <%= radio_button("post","offby", 0, :checked => true)%> Exact days only
+    <%= radio_button("post","offby", 86400, :checked => false)%> +/- 1 day
+    <%= radio_button("post","offby", 259200, :checked => false)%> +/- 3 day
+  </p>
+  <p>
+    <%= submit_tag "Next" %>
+  </p>
+<% end %>

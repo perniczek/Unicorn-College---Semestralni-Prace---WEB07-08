@@ -1,0 +1,25 @@
+--- 
+airplane_00001: 
+  plane_type: Boeing 747
+  updated_at: 2008-08-06 14:52:33 +02:00
+  code: LETADL
+  seats: 180
+  made_when: 2003-08-06 00:00:00 +02:00
+  id: 1
+  created_at: 2008-08-06 14:52:33 +02:00
+airplane_00002: 
+  plane_type: Airbus A380
+  updated_at: 2008-08-06 14:52:54 +02:00
+  code: LETADL
+  seats: 504
+  made_when: 2005-04-06 00:00:00 +02:00
+  id: 2
+  created_at: 2008-08-06 14:52:54 +02:00
+airplane_00003: 
+  plane_type: Antonov 32
+  updated_at: 2008-08-06 14:53:32 +02:00
+  code: LETADL
+  seats: 56
+  made_when: 2007-03-06 00:00:00 +01:00
+  id: 3
+  created_at: 2008-08-06 14:53:32 +02:00

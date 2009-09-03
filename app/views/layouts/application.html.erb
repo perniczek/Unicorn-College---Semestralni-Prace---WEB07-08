@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Blue Airlines</title>
+    <%= stylesheet_link_tag 'default.css' %>
+    <%= javascript_include_tag 'prototype' %>
+  </head>
+  <body>
+    <div id="wrap">
+      
+      <!--header -->
+      <div id="header">			
+        
+        <h1 id="logo-text">Wel<span class="gray">come</span></h1>		
+        <h2 id="slogan">Blue Airlines admin</h2>
+        
+        <form class="search" method="post" action="#">
+          <div><img src="/images/ero.gif" alt="Letadylko"/></div>
+        </form>			
+        
+      </div>
+      
+      <!-- menu -->	
+      <div  id="menu">
+        <ul>
+          <% content_tag 'li', :class => ((AirplanesController == controller.class) ? "first" : "none" ) do %>
+            <%= link_to 'Airplanes', :controller => :airplanes %>
+          <% end %>
+          <% content_tag 'li', :class => ((AirportsController == controller.class) ? "first" : "none" ) do %>
+            <%= link_to 'Airports', :controller => :airports %>
+          <% end %>
+          <% content_tag 'li', :class => ((FlightsController == controller.class) ? "first" : "none" ) do %>
+            <%= link_to 'Flights', :controller => :flights %>
+          <% end %> 
+          <!-- :class => ((CrewController == controller.class) ? "first" : "none" ) -->
+          <% content_tag 'li'  do %>
+            <%= link_to 'Crew', :controller => :crews %>
+          <% end %>
+          <% content_tag 'li', :class => ((CustomersController == controller.class) ? "first" : "none" ) do %>
+            <%= link_to 'Customers', :controller => :customers %>
+          <% end %>		
+          <% content_tag 'li', :class => ((CustomersController == controller.class) ? "first" : "none" ) do %>
+            <%= link_to 'Tickets', :controller => :tickets %>
+          <% end %>	
+        </ul>
+      </div>					
+      
+      <!-- content-wrap starts here -->
+      <div id="content-wrap">  
+        <div id="sidebar">    
+          <h1>Messages</h1>
+          <div class="left-box">
+            <p id="errors"><%= yield :validation_errors %> </p>
+          </div>
+          <h1>Menu</h1>
+          <div class="left-box">
+            <ul class="sidemenu">				
+              <li><%= link_to 'Check-In', :controller => :checkin %><li>
+              <li><%= link_to 'Boarding', :controller => :boarding %></li>
+              <li><%= link_to 'Ticket reservation', :controller => :selling %></li>	
+            </ul>	
+          </div>   
+        </div>
+        
+        <div id="main">      
+          <%= yield :layout %>   
+        </div>
+        
+        <!-- content-wrap ends here -->	
+      </div>
+      
+      <!--footer starts here-->
+      <div id="footer">
+        
+        <p>
+          &copy; 2008 <strong>Blue Airlines</strong> | 
+          Design by: <a href="http://www.styleshout.com/">styleshout</a> | 
+          Valid <a href="http://validator.w3.org/check?uri=referer">XHTML</a> | 
+          <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+          
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+          <a href="index.html">Home</a>&nbsp;|&nbsp;
+          <a href="index.html">Sitemap</a>&nbsp;|&nbsp;
+          <a href="index.html">RSS Feed</a>
+        </p>
+        
+      </div>	
+      
+      <!-- wrap ends here -->
+    </div>
+  </body>
+</html>

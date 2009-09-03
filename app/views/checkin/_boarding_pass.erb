@@ -1,0 +1,16 @@
+<% puts  pass.airticket_item.flight_id %>
+<h1>Thank you for check in you may board now <bbr/>Boarding pass for <%=h pass.airticket_item.airticket.customer.first_name + " " + pass.airticket_item.airticket.customer.surname%></h1>
+  <table id="show_table">
+    <tr>
+      <th>Name</th>
+      <th>Flights Id</th>
+      <th>Leaves at</th>
+      <th>Seat</th>
+    </tr>
+    <tr>
+      <td><%=h pass.airticket_item.airticket.customer.first_name + " " + pass.airticket_item.airticket.customer.surname%></td>
+      <td><%=h pass.airticket_item.flight_id %> </td>
+      <td><%=h pass.airticket_item.flight.leaves_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+      <td><%=h pass.seat_no %></td>
+    </tr>
+  </table>

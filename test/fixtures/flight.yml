@@ -1,0 +1,37 @@
+--- 
+flight_00001: 
+  updated_at: 2008-08-06 15:52:59 +02:00
+  price: 54
+  code: LET001
+  leaves_at: 2008-08-15 15:59:00 +02:00
+  airport_to_id: 2
+  id: 1
+  boarded: false
+  airplane_id: 2
+  free_seats: 504
+  created_at: 2008-08-06 15:00:29 +02:00
+  airport_from_id: 1
+flight_00002: 
+  updated_at: 2008-08-06 15:03:19 +02:00
+  price: 233
+  code: LET002
+  leaves_at: 2008-08-19 15:03:00 +02:00
+  airport_to_id: 1
+  id: 2
+  boarded: false
+  airplane_id: 2
+  free_seats: 504
+  created_at: 2008-08-06 15:03:19 +02:00
+  airport_from_id: 1
+flight_00003: 
+  updated_at: 2008-08-06 15:04:07 +02:00
+  price: 2323
+  code: LET003
+  leaves_at: 2008-08-20 15:03:00 +02:00
+  airport_to_id: 4
+  id: 3
+  boarded: false
+  airplane_id: 3
+  free_seats: 56
+  created_at: 2008-08-06 15:04:06 +02:00
+  airport_from_id: 3

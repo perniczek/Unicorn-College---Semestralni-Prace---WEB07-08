@@ -1,0 +1,21 @@
+<h1>Check-In</h1>
+<div id="first_table">
+<table id="find_table">
+  <tr>
+    <th>Passanger details</th>
+    <th>Ticket details</th>
+  </tr>
+  <tr>
+    <td> 
+      <div id="passanger">
+        <%= link_to_remote( "show",:url =>{ :action => :show_passanger }) %>
+      </div>
+    </td>
+    <td>
+      <div id="ticket">
+        <%= link_to_remote( "show", :url =>{ :action => :show_ticket }) %>
+      </div>
+    </td>
+  </tr>
+</table>
+</div>

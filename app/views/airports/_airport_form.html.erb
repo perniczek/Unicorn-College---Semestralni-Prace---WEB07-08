@@ -1,0 +1,55 @@
+<%= javascript_include_tag 'lib', 'prototype' %>
+
+<p>
+  
+    <%= f.label :code, 'Code:' %><br />
+    <%= f.text_field :code, :size => 5,
+                       :onchange => "if (document.getElementById('airport_code').value.length != 3)
+                              { alert('Your code has to have 3 chars!'); }
+                          else
+                              {this.value = this.value.toUpperCase();}"
+             %>
+    <%= observe_field 'airport_code',
+                               :url => {:action => 'code_changed'},
+                               :with => 'airport[code]' %> 
+  <div id="result_message" style="display: none;"></div>
+  
+</p>
+
+<p>
+  <%= f.label :name, 'Name:' %><br/>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= label :airport, :gps_position, 'GPS position:' %><br/>
+  <%= gps_position :airport, :gps_position %>
+</p>
+
+<p>
+  <%= f.label :inbound_fee, 'Inbound fee:' %><br/>
+  <%= f.text_field :inbound_fee, :size => 5,
+                          :onchange =>" if (!IsNumeric(document.getElementById('airport_inbound_fee').value)) 
+                              { alert('Your inbound fee has to be a number!'); }
+                            if ((document.getElementById('airport_inbound_fee').value < 0) || (document.getElementById('airport_inbound_fee').value > 100))
+                              { alert('Your inbound fee has to be between 0 and 100!');}"%>
+</p>
+
+<p>
+  <%= f.label :outbound_fee, 'Outbound fee:' %><br/>
+  <%= f.text_field :outbound_fee, :size => 5 ,
+                          :onchange =>" if (!IsNumeric(document.getElementById('airport_outbound_fee').value)) 
+                              { alert('Your outbound fee has to be a number!');
+                               form.airport_outbound_fee.focus();}
+                            if ((document.getElementById('airport_outbound_fee').value < 0) || (document.getElementById('airport_outbound_fee').value > 100))
+                              { alert('Your outbound fee has to be between 0 and 100!');}"%>
+</p>
+
+<p>
+  <%= f.label :details, 'Details:' %><br/>
+  <% if @airport.details == nil %>
+                              <%= f.text_area :details, :rows => 10, :cols => 60 ,
+                                                    :onchange => "if ((document.getElementById('airport_details').value.length < 2) || (document.getElementById('airport_details').value.length > 100))
+                                                       { alert('Your datails have to be between 2 to 100 chars!'); }" %>
+  <% end %>
+</p>

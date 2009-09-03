@@ -1,0 +1,59 @@
+<p>
+  <b>Code</b><br />
+  <%= f.text_field :code %>
+</p>
+
+<p>
+  <b>Airport from</b><br />
+  <%= f.select :airport_from_id, Airport.find(:all).collect {|p| [ p.name, p.id ] } %>
+</p>
+
+<p>
+  <b>Airport to</b><br />
+  <%= f.select :airport_to_id, Airport.find(:all).collect {|p| [ p.name, p.id ] } %>
+</p>
+
+<p>
+  <b>Leaves at</b><br />
+  <%= f.datetime_select :leaves_at %>
+</p>
+
+<p>
+  <b>Operated by</b><br />
+  <%= f.select :airplane_id, Airplane.find(:all).collect {|p| [p.plane_type + " - " + p.code, p.id]}%>
+</p>
+
+<p>
+  <b>Price</b><br />
+  <%= f.text_field :price %>
+</p>
+
+<p>
+  <b>Borded</b><br />
+  <%= f.radio_button(:boarded , true)%> yes
+  <%= f.radio_button(:boarded , false)%> No
+</p>
+
+<p>
+  <b>Captain</b><br />
+  <%= select_tag 'captain', options_for_select(@all_employees_options,
+                                                 (@captain.crew.id unless @captain.nil?))
+  %> 
+</p>
+<p>
+  <b>Copilots</b><br />
+  <%= select_tag 'copilot[]', options_for_select(@all_employees_options,  
+                  (@copilot.nil? ? nil : @copilot.collect{|c| c.crew.id})),
+                  :multiple => true %> 
+</p>
+
+<p>
+  <b>Cabin crews</b><br />
+   <%= select_tag 'cabin_crews[]', options_for_select(@all_employees_options,  
+                    (@cabin_crews.nil? ? nil : @cabin_crews.collect{|c| c.crew.id})),
+                    :multiple => true  %> 
+</p>
+
+
+
+

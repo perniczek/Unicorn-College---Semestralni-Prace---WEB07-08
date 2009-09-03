@@ -1,0 +1,14 @@
+<h2>Editing flight</h2>
+
+<%= error_messages_for :flight %>
+
+<% form_for(@flight) do |f| %>
+  <%= render :partial => 'flight_form', :locals => {:f => f} %>
+  
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @flight %> |
+<%= link_to 'Back', flights_path %>

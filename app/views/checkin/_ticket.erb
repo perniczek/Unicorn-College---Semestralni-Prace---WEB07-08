@@ -1,0 +1,21 @@
+<div id="table_div">
+<table id="find_table">
+  <tr>
+    <th>Passanger details</th>
+  </tr>
+  <tr>
+    <td>
+      <% form_remote_tag(:url => { :action => :find_passanger_by_rc}) do%>
+        <p>    
+          <b>Reservation code</b><br />    
+          <%= text_field "post","code"%>
+        </p>
+        <p>
+          <%= submit_tag "Find" %>
+        </p>
+      <%end%>
+    </td>
+  </tr>
+</table>
+</div>
+<div id="results"></div>

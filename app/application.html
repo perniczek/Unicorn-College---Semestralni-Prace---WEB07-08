@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Blue Airlines</title>
+  <%= stylesheet_link_tag 'default.css' %>
+</head>
+<body>
+<div id='leftcolumn'>
+		<ul>
+			<li>neco</li>
+			<li>neco</li>
+		</ul>
+</div>
+  <div id="outer">
+	<div id="header">
+		<h1><a href="#">Blue Airlines</a></h1>
+		<h2>Administration application</h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li>neco</li>
+			<li>neco</li>
+		</ul>
+	</div>
+	<div id="content">
+		<div id="primaryContentContainer">
+			<div id="primaryContent">
+				<%= yield :layout %>
+			</div>
+		</div>
+		<div id="secondaryContent">		    
+		  	<%= yield :validation_errors %>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="footer">
+		<p>Designed by <a href="http://www.freecsstemplates.org">Free CSS Templates</a></p>
+	</div>
+</div>
+</body>
+</html>

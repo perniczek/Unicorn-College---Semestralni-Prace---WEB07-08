@@ -1,0 +1,60 @@
+<p>
+  <b>Code:</b>
+  <%=h @flight.code %>
+</p>
+
+<p>
+  <b>Airport from:</b>
+  <%= link_to @flight.airport_from.name, @flight.airport_from %>
+</p>
+
+<p>
+  <b>Airport to:</b>
+  <%= link_to @flight.airport_to.name, @flight.airport_to %>
+</p>
+
+<p>
+  <b>Leaves at:</b>
+  <%=h @flight.leaves_at %>
+</p>
+<p>
+  <b>Operated by:</b>
+  <%= link_to @flight.airplane.plane_type, @flight.airplane%>
+</p>
+<p>
+  <b>Price:</b>
+  <%=h @flight.price%>
+</p>
+<p>
+  <b>Boarded:</b>
+  <%=h @flight.boarded%>
+</p>
+
+<p>
+  <b>Pilot:</b>
+  <%= link_to(@pilot.crew.name,@pilot.crew) if @pilot %>
+</p>
+
+<p>
+  <b>Copilot:</b>
+  <ul>
+    <%if @cabin_crew != (nil or "")%>
+      <%@copilot.each do |copilot|%>
+        <li><%= link_to(copilot.crew.name,copilot.crew) if copilot %></li>
+      <%end%>
+    <%end%>
+  </ul>
+</p>
+<p>
+  <b>Cabin Crew:</b>
+  <ul>
+    <%if @cabin_crew != (nil or "")%>
+      <%@cabin_crew.each do |cabin_crew|%>
+        <li><%= link_to(cabin_crew.crew.name,cabin_crew.crew) if cabin_crew %></li>
+      <%end%>
+    <%end%>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_flight_path(@flight) %> |
+<%= link_to 'Back', flights_path %>

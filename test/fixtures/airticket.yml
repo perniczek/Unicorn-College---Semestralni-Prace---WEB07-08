@@ -1,0 +1,33 @@
+--- 
+airticket_00022: 
+  updated_at: 2008-08-07 22:42:18 +02:00
+  price: 83.0
+  cc_nr: "1111111111111111"
+  reservation_code: "869971"
+  id: 22
+  customer_id: 11
+  created_at: 2008-08-07 22:42:18 +02:00
+airticket_00023: 
+  updated_at: 2008-08-07 22:42:18 +02:00
+  price: 83.0
+  cc_nr: "1111111111111111"
+  reservation_code: "762998"
+  id: 23
+  customer_id: 12
+  created_at: 2008-08-07 22:42:18 +02:00
+airticket_00024: 
+  updated_at: 2008-08-07 22:44:47 +02:00
+  price: 83.0
+  cc_nr: "1111111111111111"
+  reservation_code: "677764"
+  id: 24
+  customer_id: 11
+  created_at: 2008-08-07 22:44:47 +02:00
+airticket_00025: 
+  updated_at: 2008-08-07 22:44:47 +02:00
+  price: 83.0
+  cc_nr: "1111111111111111"
+  reservation_code: "961584"
+  id: 25
+  customer_id: 12
+  created_at: 2008-08-07 22:44:47 +02:00

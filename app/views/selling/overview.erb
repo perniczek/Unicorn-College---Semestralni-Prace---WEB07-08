@@ -1,0 +1,74 @@
+<div id="here"></div>
+<div id="add_here">
+  <h1>You are about to pay for your flight!</h1>
+  
+  <h1>Flight</h1>
+  <table id="show_table">
+    <tr>
+      <th>Code</th>
+      <th>Airport from</th>
+      <th>Airport to</th>
+      <th>Free seats</th>
+      <th>Price with fees</th>
+      <th>Operated by</th>
+      <th>Leaves at</th>
+    </tr>
+    
+    <tr>
+      <td><%=h @flights.code %></td>
+      <td><%=h @flights.airport_from.code %></td>
+      <td><%=h @flights.airport_to.code %></td>
+      <td><%=h @flights.free_seats %></td>
+      <%price_there_with_fees = @flights.price.to_i + @flights.airport_from.outbound_fee.to_i + @flights.airport_to.inbound_fee.to_i %>
+      <td><%=h price_there_with_fees %></td>
+      <td><%=h @flights.airplane.plane_type %></td>
+      <td><%=h @flights.leaves_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+    </tr>
+  </table>
+  
+  
+  <div id="price">
+    <h1>Price</h1>
+    <table id="show_table">
+      <tr>
+        <th>Flight fee</th>
+        <th>Inbound fee</th>
+        <th>Outbound fee</th>
+        <th>Number of passangers</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td><%=h @flights.price.to_i%></td>
+        <td><%=h @flights.airport_from.outbound_fee.to_i%></td>
+        <td><%=h @flights.airport_from.outbound_fee.to_i%></td>
+        <td><%=h session["number_of_pass"].to_i%></td>
+        <td><%=h price_there_with_fees.to_i * session["number_of_pass"].to_i%></td>
+      </tr>
+    </table>
+  </div>
+  
+  
+  <div id="credit">
+    <% form_remote_tag(:url => { :action => :add_ticket, :passer => session["pass_indb"],:price => price_there_with_fees, :flight_id => @flights.id}) do%>
+      <p>    
+        <b>Credit card number</b><br />    
+        <%= text_field "post","cr"%>
+      </p>
+      <p>
+        <b>Credit card type</b><br />
+        <%= select "post","type", ["Visa","Master Card"]%>
+      </p>
+      <p>
+        <b>Credit card valid until</b><br />
+        <%= text_field "post","valid_m", :size => 2%> / <%= text_field "post","valid_y", :size => 2%>
+      </p>
+      <p>
+        <b>Name on credit card</b><br />
+        <%= text_field "post","name"%>
+      </p>
+      <p>
+        <%= submit_tag "Pay" %>
+      </p>
+    <%end%>
+  </div>
+</div>

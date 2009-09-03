@@ -1,0 +1,22 @@
+<h2>Ticket sold</h2>
+
+<table id="show_table">
+  <tr>
+    <th>Reservation code</th>
+    <th>Airport from</th>
+    <th>Airport to</th>
+    <th>Name</th>
+  </tr>
+  
+  <% for ticket in @tickets %>
+    <tr>
+      <td><%=h ticket.airticket.reservation_code %></td>
+      <td><%=h ticket.flight.airport_from.name %></td>
+      <td><%=h ticket.flight.airport_to.name %></td>
+      <td><%=h ticket.airticket.customer.first_name + " " + ticket.airticket.customer.surname%></td>
+
+    </tr>
+  <% end %>
+</table>
+
+<br />

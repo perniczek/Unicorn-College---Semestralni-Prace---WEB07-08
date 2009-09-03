@@ -1,0 +1,47 @@
+<h2>Form test - without ActiveRecord objects</h2>
+
+<% form_tag url_for(:action=>'submit_error') do %>
+  <p>
+    <label for='checkbox_1'>Check box (not checked): </label>
+    <%= check_box_tag 'checkbox_1', 'nezaskrtnuty', false %>
+  </p><p>
+    <label for='checkbox_2'>Checkbox (checked): </label>
+    <%= check_box_tag 'checkbox_2', 'zaskrtnuty', true %>
+  </p>
+  <% field_set_tag 'A field set' do %>
+    <p>
+      <label for='hidden'>Hidden input (invisible)</label>
+      <%= hidden_field_tag 'hidden', 'hidden_value' %>
+    </p><p>
+      <label for='password'>Password: </label>
+      <%= password_field_tag 'password' %>
+    </p><p>
+      <label for='radio_1'>Radio value 1</label>
+      <%= radio_button_tag 'radio', 'radio_val_1', false, :id => 'radio_1' %>
+      
+      <label for='radio_2'>Radio value 2 (checked)</label>
+      <%= radio_button_tag 'radio', 'radio_val_2', true, :id => 'radio_2' %>
+    </p>
+  <% end %>
+  <p>
+    <label for='hardcoded_select_1'>Hardcoded select with default 'c'</label>
+    <%= select_tag 'hardcoded_select_1', options_for_select(['a','b','c','d'], 'c') %>
+  </p><p>
+    <label for='hardcoded_select_multi'>Hardcoded multi-select with defaults 'a', 'd'</label>
+    <%= select_tag 'hardcoded_select_multi[]', options_for_select(['a','b','c','d'], ['a','d']), :multiple => true %>
+  </p><p>
+    <label for='hardcoded_select_2'>Hardcoded select with text/value pairs, default 'b'(2)</label>
+    <%= select_tag 'hardcoded_select_2', options_for_select([['a',1],['b',2],['c',3],['d',4]], 2) %>
+  </p><p>
+    <label for='generated_select'>Select with generated values, default 3</label>
+    <%= select_tag 'generated_select', options_for_select((1..4).collect{|val| [val,val*val]}, 9) %>
+  </p><p>
+    <label for='short_text'>Text field:</label>
+    <%= text_field_tag 'short_text', 'Inner text', :size => 20 %>
+  </p><p>
+    <label for='long_text'>Text area:</label><br/>
+    <%= text_area_tag 'long_text', 'Text text text Text', :cols => 10, :rows => 20 %>
+  </p><p>
+    <%= submit_tag 'Submit me!', :method => 'post' %>
+  </p>
+<% end %>

@@ -1,0 +1,61 @@
+<% form_tag( { :action => "overview", }, { :method => :post }) do %>
+  <div id="tabulka">
+    <h1>Passangers that we found in our database!</h1>
+    <table id="show_table">
+      <tr id="hlava">
+        <th>Birth number</th>
+        <th>First name</th>
+        <th>Surname</th>
+      </tr>
+      <% for passanger in @passengers_indb %>
+        <tr id="radek">
+          <td><%=h passanger.birth_number %></td>
+          <td><%=h passanger.first_name %></td>
+          <td><%=h passanger.surname %></td>
+        </tr>
+      <% end %>
+      <tr id="paticka"></tr>
+    </table>
+  </div>
+  <div id="submitbut" style="display:none;">
+    <p>
+      <%= submit_tag "Next"%>
+    </p>
+  </div>
+  <%if @passengers_indb.size == session["number_of_pass"].to_i %>
+    <%= submit_tag "Next"%>
+  <%end%>
+<%end%>
+
+
+<%if @passengers_new.size > 0%>
+
+
+  <h1>Passanger that we didnt find!<br/>Please fill in the necessery information!</h1>
+  <% @passengers_new.each_with_index do |passer,index| %>
+    <div id="novy_pasazer_<%= index %>">
+      <% form_remote_tag(:url => { :action => :add_item_ajax ,:id => index}) do%>
+        <p>
+          <b>Birth number</b><br />
+          <%= text_field "post","birth_number", :value => passer.birth_number%>
+        </p>
+        <p>
+          <b>First name</b><br />
+          <%= text_field "post","first_name" %>
+        </p>
+        <p>
+          <b>Surname</b><br />
+          <%= text_field "post","surname" %>
+        </p>
+        <p>
+          <b>Address</b><br />
+          <%= text_area "post","address" %>
+        </p>
+        <p>
+          <%= submit_tag "Add"   %>
+        </p>
+      <% end %>
+    </div>
+    <div id="problems"></div>
+  <%end%>
+<%end%>

@@ -1,0 +1,41 @@
+<%if not @found_flights == []%>
+  <h1>Pick flight there :</h1>
+  <% form_tag( { :action => "passangers_pass", }, { :method => :post }) do %>
+    <table id="show_table">
+      <tr>
+        <th></th>
+        <th>Code</th>
+        <th>Airport from</th>
+        <th>Airport to</th>
+        <th>Free seats</th>
+        <th>Price with fees</th>
+        <th>Operated by</th>
+        <th>Leaves at</th>
+      </tr>
+  
+      <% for flight in @found_flights %>
+        <tr>
+          <td><%=  radio_button("post","picked", flight.id, :checked => true)%></td>
+          <td><%=h flight.code %></td>
+          <td><%=h flight.airport_from.name %></td>
+          <td><%=h flight.airport_to.name %></td>
+          <td><%=h flight.free_seats %></td>
+          <%price_with_fees = flight.price.to_i + flight.airport_from.outbound_fee.to_i + flight.airport_to.inbound_fee.to_i %>
+          <td><%=h price_with_fees%></td>
+          <td><%=h flight.airplane.plane_type %></td>
+          <td><%=h flight.leaves_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+        </tr>
+      <% end %>
+    </table>
+    <p>
+      <b>Number of Passangers</b><br />
+      <%=select("post", "number_of_pass", [1,2,3,4,5]) %>
+    </p>
+    <p>
+      <%= submit_tag "Next" %>
+    </p>
+    <%=  link_to "Return to flights selection", '/selling' %>
+  <% end %>
+<%else%>
+  <div align="center"><h2><br/>Nothing was found<br/>Please try it for other cryteria</h2></div>
+<%end%>

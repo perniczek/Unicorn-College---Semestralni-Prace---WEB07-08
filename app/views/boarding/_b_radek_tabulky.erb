@@ -1,0 +1,5 @@
+<tr id="b_radek_<%= (999 - line.to_i) %>">
+  <td><%=h info.airticket.customer.first_name + " " + info.airticket.customer.surname%></td>
+  <td>todo</td>
+  <td><%= link_to_remote( "Delete",:url =>{ :action => :reject, :line => (999 - line.to_i), :entry => info }) %></td>
+</tr>
